@@ -1,0 +1,17 @@
+
+body {
+    background-color: gray;
+}
+
+header {
+    background-color: white;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+header, div {
+    margin-right: 10px;
+    margin-left: auto;
+
+}
