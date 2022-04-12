@@ -1,23 +1,293 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Top Restaurant</title>
+        <title>Photo App</title>
         <link rel="stylesheet" href="./styles.css">
     </head>
 
     <body>
         <header>
-            <h2>Photo App</h2>
-            <div>
-                <p>test user</p> <a href="#">Sign out</a>
+            <div class="logo">Photo App</div>
+            <div class="navi-right">
+                <div class="navi-name">Dong Yang</div>
+                <a class="navi-out" href="#">Sign Out</a>
             </div>
         </header>
 
-        <main>
-            <p>hello world</p>
-        </main>
+        <section class="left">
+            <section class="storypanel">
+                <div class="card">
+                    <img src="https://picsum.photos/seed/tom/100" alt="card-img">
+                    <div >tom</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/david/100" alt="card-img">
+                    <div>david</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/smith/100" alt="card-img">
+                    <div>smith</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/john/100" alt="card-img">
+                    <div>john</div>
+                </div>
+                <div class="card">
+                    <img src="https://picsum.photos/seed/june/100" alt="card-img">
+                    <div>jane</div>
+                </div>
+            </section>
+
+            <section class="cardpenel">
+
+                <section class="post">
+                    <div class="header">
+                        <div class="username font">tom</div>
+                        <i class="fas fa-ellipsis-h dot"></i>
+                    </div>
+                    <img class="postimg" src="https://picsum.photos/seed/beach/500/300" alt="card-img">
+                    <div class="icon">
+                        <i class="far fa-heart"></i>
+                        <i class="far fa-comment"></i>
+                        <i class="far fa-paper-plane"></i>
+                        <i style="float: right;" class="far fa-bookmark"></i>
+                    </div>
+                    <div class="like"><span>30</span>likes</div>
+                    <div class="tweet">
+                        <span>tom</span>
+                        Here is a caption about the photo. It is a long text, so I want it become a demo of the text object that can narrow a little bit...
+                        <a href="#">more</a>
+                    </div>
+                    <div class="commit">
+                        <div class="user">
+                            <span>lizzie</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="user">
+                            <span>vanek97</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="time">
+                            1 DAY AGO
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <i class="far fa-smile"></i>
+                        <input type="text" class="place" placeholder="Add a comment..." />
+                        <a class="button" href="#">Post</a>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <div class="header">
+                        <div class="username font">david</div>
+                        <i class="fas fa-ellipsis-h dot"></i>
+                    </div>
+                    <img class="postimg" src="https://picsum.photos/seed/2/500/300" alt="card-img">
+                    <div class="icon">
+                        <i class="far fa-heart"></i>
+                        <i class="far fa-comment"></i>
+                        <i class="far fa-paper-plane"></i>
+                        <i style="float: right;" class="far fa-bookmark"></i>
+                    </div>
+                    <div class="like"><span>30</span>likes</div>
+                    <div class="tweet">
+                        <span>tom</span>
+                        Here is a caption about the photo. It is a long text, so I want it become a demo of the text object that can narrow a little bit...
+                        <a href="#">more</a>
+                    </div>
+                    <div class="commit">
+                        <div class="user">
+                            <span>lizzie</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="user">
+                            <span>vanek97</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="time">
+                            1 DAY AGO
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <i class="far fa-smile"></i>
+                        <input type="text" class="place" placeholder="Add a comment..." />
+                        <a class="button" href="#">Post</a>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <div class="header">
+                        <div class="username font">smith</div>
+                        <i class="fas fa-ellipsis-h dot"></i>
+                    </div>
+                    <img class="postimg" src="https://picsum.photos/seed/3/500/300" alt="card-img">
+                    <div class="icon">
+                        <i class="far fa-heart"></i>
+                        <i class="far fa-comment"></i>
+                        <i class="far fa-paper-plane"></i>
+                        <i style="float: right;" class="far fa-bookmark"></i>
+                    </div>
+                    <div class="like"><span>30</span>likes</div>
+                    <div class="tweet">
+                        <span>tom</span>
+                        Here is a caption about the photo. It is a long text, so I want it become a demo of the text object that can narrow a little bit...
+                        <a href="#">more</a>
+                    </div>
+                    <div class="commit">
+                        <div class="user">
+                            <span>lizzie</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="user">
+                            <span>vanek97</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="time">
+                            1 DAY AGO
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <i class="far fa-smile"></i>
+                        <input type="text" class="place" placeholder="Add a comment..." />
+                        <a class="button" href="#">Post</a>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <div class="header">
+                        <div class="username font">john</div>
+                        <i class="fas fa-ellipsis-h dot"></i>
+                    </div>
+                    <img class="postimg" src="https://picsum.photos/seed/4/500/300" alt="card-img">
+                    <div class="icon">
+                        <i class="far fa-heart"></i>
+                        <i class="far fa-comment"></i>
+                        <i class="far fa-paper-plane"></i>
+                        <i style="float: right;" class="far fa-bookmark"></i>
+                    </div>
+                    <div class="like"><span>30</span>likes</div>
+                    <div class="tweet">
+                        <span>tom</span>
+                        Here is a caption about the photo. It is a long text, so I want it become a demo of the text object that can narrow a little bit...
+                        <a href="#">more</a>
+                    </div>
+                    <div class="commit">
+                        <div class="user">
+                            <span>lizzie</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="user">
+                            <span>vanek97</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="time">
+                            1 DAY AGO
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <i class="far fa-smile"></i>
+                        <input type="text" class="place" placeholder="Add a comment..." />
+                        <a class="button" href="#">Post</a>
+                    </div>
+                </section>
+
+                <section class="post">
+                    <div class="header">
+                        <div class="username font">jane</div>
+                        <i class="fas fa-ellipsis-h dot"></i>
+                    </div>
+                    <img class="postimg" src="https://picsum.photos/seed/10/500/300" alt="card-img">
+                    <div class="icon">
+                        <i class="far fa-heart"></i>
+                        <i class="far fa-comment"></i>
+                        <i class="far fa-paper-plane"></i>
+                        <i style="float: right;" class="far fa-bookmark"></i>
+                    </div>
+                    <div class="like"><span>30</span>likes</div>
+                    <div class="tweet">
+                        <span>tom</span>
+                        Here is a caption about the photo. It is a long text, so I want it become a demo of the text object that can narrow a little bit...
+                        <a href="#">more</a>
+                    </div>
+                    <div class="commit">
+                        <div class="user">
+                            <span>lizzie</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="user">
+                            <span>vanek97</span>
+                            Here is a comment text text text text.
+                        </div>
+                        <div class="time">
+                            1 DAY AGO
+                        </div>
+                    </div>
+                    <div class="reply">
+                        <i class="far fa-smile"></i>
+                        <input type="text" class="place" placeholder="Add a comment..." />
+                        <div class="button">
+                            <a href="#">Post</a>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </section>
+
+        <section class="right">
+            <section class="Recommendation-panel">
+                <div class="rec-self">
+                    <img src="https://picsum.photos/50" alt="Avatar">
+                    <div class="rec-user-name font">Dong Yang</div>
+                </div>
+                <div class="rec-bar">Suggestions for you</div>
+
+
+                <section class="rec-suggestuser">
+                    <section class="rec-info">
+                        <img src="https://picsum.photos/seed/1/45" alt="pic">
+                        <div class="rec-content">
+                            <div class="rec-sug-username">Mark</div>
+                            <div class="rec-sug-text">Suggested for you</div>
+                        </div>
+                        <a class="rec-follow" href="#">follow</a>
+                    </section>
+                    <section class="rec-info">
+                        <img src="https://picsum.photos/seed/2/45" alt="pic">
+                        <div class="rec-content">
+                            <div class="rec-sug-username">Bill</div>
+                            <div class="rec-sug-text">Suggested for you</div>
+                        </div>
+                        <a class="rec-follow" href="#">follow</a>
+                    </section>
+                    <section class="rec-info">
+                        <img src="https://picsum.photos/seed/3/45" alt="pic">
+                        <div class="rec-content">
+                            <div class="rec-sug-username">Lady</div>
+                            <div class="rec-sug-text">Suggested for you</div>
+                        </div>
+                        <a class="rec-follow" href="#">follow</a>
+                    </section>
+                    <section class="rec-info">
+                        <img src="https://picsum.photos/seed/8/45" alt="pic">
+                        <div class="rec-content">
+                            <div class="rec-sug-username">Amada</div>
+                            <div class="rec-sug-text">Suggested for you</div>
+                        </div>
+                        <a class="rec-follow" href="#">follow</a>
+                    </section>
+                    <section class="rec-info">
+                        <img src="https://picsum.photos/seed/5/45" alt="pic">
+                        <div class="rec-content">
+                            <div class="rec-sug-username">Caption</div>
+                            <div class="rec-sug-text">Suggested for you</div>
+                        </div>
+                        <a class="rec-follow" href="#">follow</a>
+                    </section>
+                </section>
+
+            </section>
+        </section>
     </body>
-
-
 </html>
