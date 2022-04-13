@@ -1,86 +1,159 @@
+@import url(https://fonts.googleapis.com/css?family=Comfortaa);
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css?family=Poppins);
 
 body {
     background-color: lightgray;
-    padding-top: 45px;
     display: flex;
     justify-content: center;
+    padding-top: 45px;
 }
 
+/********** navigation bar start **********/
 header {
+    align-items: center;
     background-color: white;
-    padding: 10px;
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
     position: fixed;
     top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    width: 100%;
 }
 
 .logo {
-    float: left;
+    font-family: 'Comfortaa', serif;
     font-size: 30px;
+    font-weight: bold;
     margin: 10px;
-    padding-left: 10px;
+    padding-left: 20px;
 }
 
-.left {
-    margin-left: 0
-}
-
-.right {
-    width: 400px;
-}
-
-
-
-
-
-.navi-right {
-    display: inline-flex;
-    float: right;
+.user {
+    display: flex;
+    font-family: 'Nunito', serif;
+    font-size: 20px;
+    margin: 10px;
     padding-right: 20px;
 }
 
-.navi-name {
-    padding: 10px;
+.user_name {
+    padding: 5px;
 }
 
-.navi-out {
-    padding: 10px;
-    color: #689eca;
+.user_signout {
+    color: cornflowerblue;
+    margin-left: 10px;
+    padding: 5px;
     text-decoration:none;
 }
+/********** navigation bar end **********/
 
-.storypanel {
-    margin-top: 15px;
-    width: 500px;
-    background-color: white;
-    padding: 8px;
-    border: #efefef solid 1px;
+/********** recommendations panel start **********/
+.recommendations_panel {
+    margin: 20px;
+    position: fixed;
+    right:0;
+    width: 400px;
+}
+
+.profile {
+    align-items: center;
     display: flex;
-    justify-content: space-around;
+    padding-left: 5px;
 }
 
-.card {
-    width: auto;
-    background-color: white;
-    padding: 1px;
-    flex-direction: column;
+.profile_pic {
+    border-radius: 50%;
+    width: 75px;
 }
 
-.card > img {
-    width: 70px;
-    border-radius:50%;
-    border: solid 2px #d0d0d0;
+.profile_name {
+    margin-left: 20px;
+    font-family: 'Comfortaa', serif;
+    font-size: xx-large;
+    font-weight: bold;
 }
 
-.card > div {
-    color: #a2a2a2;
+.suggestions {
+    padding: 5px;
+}
+
+.suggestions_text {
+    color: gray;
+    font-family: 'Poppins', serif;
+    font-weight: bold;
+    font-size: large;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.suggestions_unit {
+    align-items: center;
     display: flex;
-    justify-content: center;
+    font-family: 'Poppins', serif;
+}
+
+.suggestions_unit_pic {
+    width: 50px;
+    border-radius: 50%;
+    border: solid 2px darkgray;
+}
+
+.suggestions_unit_body {
+    margin-left: 10px;
+    padding: 15px;
+}
+
+.suggestions_unit_body_name {
+    font-size: large;
+    font-weight: bold;
+}
+
+.suggestions_unit_body_text {
     font-size: 15px;
+    color: gray;
 }
+
+.suggestions_unit_follow {
+    color: cornflowerblue;
+    margin: 15px;
+    text-decoration: none;
+}
+/********** recommendations panel end **********/
+
+/********** story panel start **********/
+.story_panel {
+    background-color: white;
+    display: flex;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.story_panel_unit {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+.story_panel_unit_pic {
+    border: solid 3px lightgray;
+    border-radius: 50%;
+    width: 50px;
+}
+
+.story_panel_unit_name {
+    color: darkgray;
+    font-family: 'Poppins', serif;
+    font-size: 15px;
+    text-align: center;
+}
+/********** story panel end **********/
+
+/********** card start **********/
+
+/********** card start **********/
+
+
 
 .post {
     margin-top: 10px;
@@ -193,75 +266,6 @@ header {
     font-family: 'Comfortaa', cursive;
 }
 
-.rec-self {
-    display: flex;
-    align-items: center;
-}
-.rec-self *{
-    margin: 10px;
-}
-
-.Recommendation-panel {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    margin: 20px;
-}
-
-.rec-self > img {
-    width: 70px;
-    border-radius: 50%;
-    border: solid 2px #d0d0d0;
-}
-
-.rec-self > div {
-    font-size: x-large;
-}
-
-.rec-bar {
-    font-weight: bold;
-    font-size: large;
-    color: #a2a2a2;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    padding-left: 10px;
-}
-
-.rec-info {
-    width: 290px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.rec-info > img {
-    width: 50px;
-    border-radius: 50%;
-    border: solid 2px #d0d0d0;
-}
-
-.rec-sug-username {
-    font-size: large;
-    font-weight: bold;
-}
-
-.rec-sug-text {
-    font-size: 15px;
-    color: #a2a2a2;
-}
-
-.rec-content {
-    width: 130px;
-}
-
-.rec-follow {
-    color: #689eca;
-    text-decoration:none;
-    cursor: pointer;
-}
 
 @media only screen and (max-width: 1000px) {
     .Recommendation-panel {
