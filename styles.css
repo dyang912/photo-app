@@ -150,33 +150,38 @@ header {
 /********** story panel end **********/
 
 /********** card start **********/
+.card {
+    background-color: white;
+    border: darkgray solid 1px;
+    margin-top: 10px;
+    width: 600px;
+}
+
+.card_header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.card_header_name {
+    font-family: 'Comfortaa', serif;
+    font-size: larger;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.card_header_icon {
+    padding: 10px;
+}
+
+.card_img {
+    width: 100%;
+    height: auto;
+}
 
 /********** card start **********/
 
 
-
-.post {
-    margin-top: 10px;
-    width: 516px;
-    background-color: white;
-    border: #efefef solid 1px;
-    /* display: flex; */
-}
-
-.post > .header {
-    height: 20px;
-    padding: 12px 8px;
-}
-
-.post > .header > .username {
-    font-size: larger;
-    display: inline-block;
-    /* display: flex; */
-}
-
-.header > i {
-    float: right;
-}
 
 .postimg {
     width: 100%;
