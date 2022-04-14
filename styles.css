@@ -1,12 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Comfortaa);
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-@import url(https://fonts.googleapis.com/css?family=Poppins);
 
 body {
     background-color: lightgray;
     display: flex;
     justify-content: center;
     padding-top: 45px;
+}
+
+.wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "section_1  section_2";
 }
 
 /********** navigation bar start **********/
@@ -51,10 +55,11 @@ header {
 
 /********** recommendations panel start **********/
 .recommendations_panel {
-    margin: 20px;
+    grid-area: section_2;
+    /*margin: 20px;*/
     position: fixed;
-    right:0;
-    width: 400px;
+    width: 500px;
+    margin-left: 0;
 }
 
 .profile {
@@ -81,7 +86,7 @@ header {
 
 .suggestions_text {
     color: gray;
-    font-family: 'Poppins', serif;
+    font-family: Arial, serif;
     font-weight: bold;
     font-size: large;
     margin-top: 5px;
@@ -91,7 +96,7 @@ header {
 .suggestions_unit {
     align-items: center;
     display: flex;
-    font-family: 'Poppins', serif;
+    font-family: Arial, serif;
 }
 
 .suggestions_unit_pic {
@@ -122,6 +127,11 @@ header {
 }
 /********** recommendations panel end **********/
 
+.main_body {
+    grid-area: section_1;
+    padding-right: 0;
+}
+
 /********** story panel start **********/
 .story_panel {
     background-color: white;
@@ -143,7 +153,7 @@ header {
 
 .story_panel_unit_name {
     color: darkgray;
-    font-family: 'Poppins', serif;
+    font-family: Arial, serif;
     font-size: 15px;
     text-align: center;
 }
@@ -179,106 +189,93 @@ header {
     height: auto;
 }
 
-/********** card start **********/
-
-
-
-.postimg {
-    width: 100%;
-    height: auto;
-}
-
-.post > .icon {
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.icon > i {
-    font-size: larger;
+.card_content {
     padding: 5px;
-    color: rgb(42, 42, 42);
 }
 
-.like {
-    font-weight: bold;
-    margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.card_content_icons {
+    padding: 10px;
+    font-size: larger;
 }
-.like > span {
+
+.card_content_icons_icon {
     padding-right: 5px;
 }
 
-.tweet {
-    margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.card_content_icons_bookmark {
+    float: right;
+    padding-right: 10px;
 }
 
-.tweet > span {
+.card_content_like {
+    font-family: Arial, serif;
+    font-weight: 900;
+    padding-left: 10px;
+}
+
+.card_content_post {
+    font-family: Arial, serif;
+    padding: 10px;
+}
+
+.card_content_post_name {
     font-weight: bold;
-
 }
 
-.tweet > a {
-    color: #689eca;
-    text-decoration:none;
+.card_content_post_more {
+    color: cornflowerblue;
+    text-decoration: none;
 }
-.commit {
-    margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+
+.card_content_comments {
+    padding-left: 10px;
 }
-.commit > .user {
+
+.card_content_comments_unit {
+    font-family: Arial, serif;
     padding-bottom: 5px;
 }
-.commit > .user > span {
+
+.card_content_comments_unit_name {
     font-weight: bold;
 }
-.commit > .time {
-    color: rgb(159, 159, 159);
+
+.card_content_comments_unit_time {
+    color: darkgray;
+    font-family: Arial, serif;
     font-size: small;
-    padding-bottom: 2px;
+    padding-bottom: 5px;
 }
 
-
-.reply {
-    border-top: #efefefdb solid 1px;
-    padding-top: 10px;
-    padding-bottom: 8px;
+.card_add_comment {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    border-top: darkgray solid 1px;
+    font-family: Arial, serif;
+    font-size: larger;
+    padding: 10px 5px;
 }
-.reply > i {
-    margin-left: 10px;
-    margin-right: 5px;
-    margin-bottom: 10px;
+
+.card_add_comment_input {
+    padding: 10px;
+}
+
+.card_add_comment_input_textbox {
+    border: none;
+    padding-left: 10px;
     font-size: large;
 }
-.reply > input {
-    width: 80%;
-    border: none;
-    border-bottom: #efefef solid 1px;
-    padding: 5px;
-}
-.reply > .button {
-    float: right;
-    padding-top: 2px;
-    padding-right: 12px;
-    color: #689eca;
-    text-decoration:none;
-}
 
-.font {
-    font-family: 'Comfortaa', cursive;
+.card_add_comment_submit {
+    color: cornflowerblue;
+    text-decoration: none;
+    margin: 10px;
 }
-
+/********** card end **********/
 
 @media only screen and (max-width: 1000px) {
-    .Recommendation-panel {
+    .recommendations_panel {
         display: none;
     }
 }
-
-/* how you would add a feature so users can easily add alt-text to their images?
-A: For Instagram-like apps, users usually write a commit, so the most direct approach is to directly prompt the user to add the intro text for Alt-text in the next line.
-If the user leaves a white space, an AI approach can be used, where the user uploads an image is using target recognition, generating potential image tags and providing the user with the choice of the appropriate tag. NLP algorithms are then used to generate statements with logic.
-If the user does not select a label, the text in the image is recognized using the label generated by the target recognition algorithm and the OCR algorithm, which is input to the NLP algorithm to generate natural statements as Alt-text. */
