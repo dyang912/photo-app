@@ -67,6 +67,7 @@ header {
 .profile_pic {
     border-radius: 50%;
     width: 75px;
+    height: 75px;
 }
 
 .profile_name {
@@ -87,6 +88,7 @@ header {
     font-size: large;
     margin-top: 5px;
     margin-bottom: 5px;
+    width: 350px;
 }
 
 .suggestions_unit {
@@ -97,6 +99,7 @@ header {
 
 .suggestions_unit_pic {
     width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: solid 2px darkgray;
 }
@@ -118,7 +121,8 @@ header {
 
 .suggestions_unit_follow {
     color: cornflowerblue;
-    margin: 15px;
+    margin-right: 0;
+    margin-left: auto;
     text-decoration: none;
 }
 /********** recommendations panel end **********/
@@ -138,8 +142,10 @@ header {
 }
 
 .story_panel_unit {
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 5px;
+    width: 65px;
+    text-align: center;
 }
 
 .story_panel_unit_pic {
@@ -152,7 +158,8 @@ header {
     color: darkgray;
     font-family: Arial, serif;
     font-size: 15px;
-    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 /********** story panel end **********/
 
@@ -224,11 +231,11 @@ header {
 }
 
 .card_content_comments {
+    font-family: Arial, serif;
     padding-left: 10px;
 }
 
 .card_content_comments_unit {
-    font-family: Arial, serif;
     padding-bottom: 5px;
 }
 
@@ -236,11 +243,17 @@ header {
     font-weight: bold;
 }
 
-.card_content_comments_unit_time {
+.card_content_comments_viewall {
+    color: cornflowerblue;
+    text-decoration: none;
+}
+
+.card_content_time {
     color: darkgray;
     font-family: Arial, serif;
     font-size: small;
     padding-bottom: 5px;
+    padding-left: 10px;
 }
 
 .card_add_comment {
