@@ -9,11 +9,10 @@ body {
 }
 
 /********** navigation bar start **********/
-header {
+.navbar {
     align-items: center;
     background-color: white;
     display: flex;
-    justify-content: space-between;
     padding: 5px;
     position: fixed;
     top: 0;
@@ -33,7 +32,8 @@ header {
     display: flex;
     font-family: 'Nunito', serif;
     font-size: 20px;
-    margin: 10px;
+    margin-right: 10px;
+    margin-left: auto;
     padding-right: 20px;
 }
 
@@ -42,7 +42,7 @@ header {
 }
 
 .user_signout {
-    color: cornflowerblue;
+    color: #3371E6;
     margin-left: 10px;
     padding: 5px;
     text-decoration:none;
@@ -54,8 +54,8 @@ header {
     position: fixed;
     margin-top: 10px;
     padding: 10px;
-    width: 300px;
-    right: calc((100% - 1000px) / 2);
+    width: 350px;
+    right: calc((100% - 1050px) / 2);
 }
 
 .profile {
@@ -120,7 +120,7 @@ header {
 }
 
 .suggestions_unit_follow {
-    color: cornflowerblue;
+    color: #1854C3;
     margin-right: 0;
     margin-left: auto;
     text-decoration: none;
@@ -130,7 +130,7 @@ header {
 .main_body {
     width: 600px;
     position: absolute;
-    right: calc((100% - 1000px) * 0.5 + 350px);
+    right: calc((100% - 1050px) * 0.5 + 375px);
 }
 
 /********** story panel start **********/
@@ -226,7 +226,8 @@ header {
 }
 
 .card_content_post_more {
-    color: cornflowerblue;
+    color: #3371E6;
+    cursor: pointer;
     text-decoration: none;
 }
 
@@ -244,12 +245,12 @@ header {
 }
 
 .card_content_comments_viewall {
-    color: cornflowerblue;
+    color: #3371E6;
     text-decoration: none;
 }
 
 .card_content_time {
-    color: darkgray;
+    color: #757575;
     font-family: Arial, serif;
     font-size: small;
     padding-bottom: 5px;
@@ -266,6 +267,11 @@ header {
 
 .card_add_comment_input {
     padding: 10px;
+    font-size: 0;
+}
+
+.card_add_comment_input_icon {
+    font-size: medium;
 }
 
 .card_add_comment_input_textbox {
@@ -276,7 +282,7 @@ header {
 }
 
 .card_add_comment_submit {
-    color: cornflowerblue;
+    color: #3371E6;
     text-decoration: none;
     margin: 10px;
 }

@@ -1,0 +1,16 @@
+1. What corrections did you have to make?
+A: I changed the alt text for the picture and make it different from each other. It helps users understand the page
+better if they cannot fetch the picture successfully. I also changed some text colors to fix the low contrast problem.
+
+2. Given that the photos and captions rely on user-generated content, do you think that the accessibility problems
+are all solvable? Why or why not?
+A: No. In this situation, it is hard to fix visual problems like the unmatched color/low contrast. These problems
+will affect the accessibility and user experience a lot.
+
+3. Do you think your website is usable if you turn off the CSS? Why or why not?
+A: No. When I turn off the CSS, the page looks like pictures and texts are placed randomly. It is hard to get some
+useful information.
+
+4. Do you think your website is usable if you turn off the images? Why or why not?
+A: Yes. It is because users can read captions and the alt text for pictures to get the general ideas. The picture is not
+required in this scenario.

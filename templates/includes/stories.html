@@ -1,7 +1,7 @@
 <div class="story_panel">
     {% for story in stories %}
         <div class="story_panel_unit">
-            <img class="story_panel_unit_pic" src="{{ story.get('user').get('profile_url') }}" alt="card-img">
+            <img class="story_panel_unit_pic" src="{{ story.get('user').get('profile_url') }}" alt="story_{{ story.get('user').get('username') }}">
             <div class="story_panel_unit_name">{{ story.get('user').get('username') }}</div>
         </div>
     {% endfor %}
