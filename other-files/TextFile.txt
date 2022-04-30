@@ -1,0 +1,10 @@
+1. What is the value of SQLAlchemy?
+A: SQLAlchemy helps build a connection between python programs and database. It is easy to perform queries and update
+database using SQLAlchemy.
+
+2. What is a model?
+A: A model is a user-defined data structure based on db.Model baseclass. It can be used in SQLAlchemy when communicating
+with database.
+
+3. What is a view?
+A: A view is a function that is used to build responses for the http requests.
