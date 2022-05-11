@@ -1,58 +1,58 @@
-<div>
-    {% for post in posts %}
-    <div class="card">
-        <div class="card_header">
-            <div class="card_header_name">{{ post.get('user').get('username') }}</div>
-            <i class="fas fa-ellipsis-h card_header_icon"></i>
-        </div>
+<div class="posts_content">
+<!--    {% for post in posts %}-->
+<!--    <div class="card">-->
+<!--        <div class="card_header">-->
+<!--            <div class="card_header_name">{{ post.get('user').get('username') }}</div>-->
+<!--            <i class="fas fa-ellipsis-h card_header_icon"></i>-->
+<!--        </div>-->
 
-        <img class="card_img" src="{{ post.get('image_url') }}" alt="card_img_{{ post.get('user').get('username') }}">
+<!--        <img class="card_img" src="{{ post.get('image_url') }}" alt="card_img_{{ post.get('user').get('username') }}">-->
 
-        <div class="card_content">
-            <div class="card_content_icons">
-                <i class="far fa-heart card_content_icons_icon"></i>
-                <i class="far fa-comment card_content_icons_icon"></i>
-                <i class="far fa-paper-plane card_content_icons_icon"></i>
-                <i class="far fa-bookmark card_content_icons_bookmark"></i>
-            </div>
+<!--        <div class="card_content">-->
+<!--            <div class="card_content_icons">-->
+<!--                <i class="far fa-heart card_content_icons_icon"></i>-->
+<!--                <i class="far fa-comment card_content_icons_icon"></i>-->
+<!--                <i class="far fa-paper-plane card_content_icons_icon"></i>-->
+<!--                <i class="far fa-bookmark card_content_icons_bookmark"></i>-->
+<!--            </div>-->
 
-            <div class="card_content_like">{{ post.get('likes')|length }} likes</div>
+<!--            <div class="card_content_like">{{ post.get('likes')|length }} likes</div>-->
 
-            <div class="card_content_post">
-                <span class="card_content_post_name">{{ post.get('user').get('username') }}</span>
-                {{ post.get('caption') }}..
-                <span class="card_content_post_more" >more</span>
-            </div>
+<!--            <div class="card_content_post">-->
+<!--                <span class="card_content_post_name">{{ post.get('user').get('username') }}</span>-->
+<!--                {{ post.get('caption') }}..-->
+<!--                <span class="card_content_post_more" >more</span>-->
+<!--            </div>-->
 
-            <div class="card_content_comments">
-                {% if post.get('comments')|length > 1 %}
-                    <a class="card_content_comments_viewall" href="#">
-                        View all {{ post.get('comments')|length }} comments
-                    </a>
-                {% endif %}
+<!--            <div class="card_content_comments">-->
+<!--                {% if post.get('comments')|length > 1 %}-->
+<!--                    <a class="card_content_comments_viewall" href="#">-->
+<!--                        View all {{ post.get('comments')|length }} comments-->
+<!--                    </a>-->
+<!--                {% endif %}-->
 
-                {% if post.get('comments')|length > 0 %}
-                    <div class="card_content_comments_unit">
-                        <span class="card_content_comments_unit_name">{{ post.get('comments')[0].get('user').get('username') }}</span>
-                        {{ post.get('comments')[0].get('text') }}
-                    </div>
-                {% endif %}
+<!--                {% if post.get('comments')|length > 0 %}-->
+<!--                    <div class="card_content_comments_unit">-->
+<!--                        <span class="card_content_comments_unit_name">{{ post.get('comments')[0].get('user').get('username') }}</span>-->
+<!--                        {{ post.get('comments')[0].get('text') }}-->
+<!--                    </div>-->
+<!--                {% endif %}-->
 
-            </div>
+<!--            </div>-->
 
-            <div class="card_content_time">
-                {{ post.get('display_time').upper() }}
-            </div>
-        </div>
+<!--            <div class="card_content_time">-->
+<!--                {{ post.get('display_time').upper() }}-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="card_add_comment">
-            <label class="card_add_comment_input">
-                <i class="far fa-smile card_add_comment_input_icon"></i>label
-                <input class="card_add_comment_input_textbox" type="text" placeholder="Add a comment..." />
-            </label>
+<!--        <div class="card_add_comment">-->
+<!--            <label class="card_add_comment_input">-->
+<!--                <i class="far fa-smile card_add_comment_input_icon"></i>label-->
+<!--                <input class="card_add_comment_input_textbox" type="text" placeholder="Add a comment..." />-->
+<!--            </label>-->
 
-            <a class="card_add_comment_submit" href="#">Post</a>
-        </div>
-    </div>
-    {% endfor %}
+<!--            <a class="card_add_comment_submit" href="#">Post</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
 </div>

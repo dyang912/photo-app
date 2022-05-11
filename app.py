@@ -1,5 +1,3 @@
-import json
-
 from dotenv import load_dotenv
 load_dotenv()
 from flask import Flask, request
@@ -33,21 +31,14 @@ initialize_routes(api)
 # Server-side template for the homepage:
 @app.route('/')
 def home():
-    user_ids = get_authorized_user_ids(app.current_user)
-    posts = Post.query.filter(Post.user_id.in_(user_ids)).limit(8).all()
-    stories = Story.query.filter(Story.user_id.in_(user_ids)).limit(6).all()
-    suggestions = User.query.filter(User.id.notin_(user_ids)).limit(7).all()
-
     return render_template(
         'index.html',
-        user=app.current_user.to_dict(),
-        posts=[p.to_dict() for p in posts],
-        stories=[s.to_dict() for s in stories],
-        suggestions=[u.to_dict() for u in suggestions]
+         user=app.current_user
     )
 
 
 @app.route('/api')
+@app.route('/api/')
 def api_docs():
     navigator = ApiNavigator(app.current_user)
     return render_template(

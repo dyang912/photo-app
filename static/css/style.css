@@ -3,9 +3,15 @@
 
 body {
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
     background-color: lightgray;
     justify-content: center;
     padding-top: 55px;
+}
+
+a {
+    color: #3371E6;
+    text-decoration:none;
 }
 
 /********** navigation bar start **********/
@@ -13,10 +19,11 @@ body {
     align-items: center;
     background-color: white;
     display: flex;
-    padding: 5px;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     width: 100%;
+    padding: 5px 0;
     z-index: 1;
 }
 
@@ -30,22 +37,12 @@ body {
 
 .user {
     display: flex;
-    font-family: 'Nunito', serif;
-    font-size: 20px;
-    margin-right: 10px;
-    margin-left: auto;
-    padding-right: 20px;
+    align-items: center;
+    list-style-type: none;
 }
 
-.user_name {
-    padding: 5px;
-}
-
-.user_signout {
-    color: #3371E6;
-    margin-left: 10px;
-    padding: 5px;
-    text-decoration:none;
+.user li {
+    margin-right: 30px;
 }
 /********** navigation bar end **********/
 
@@ -86,8 +83,8 @@ body {
     font-family: Arial, serif;
     font-weight: bold;
     font-size: large;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 350px;
 }
 
