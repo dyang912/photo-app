@@ -117,10 +117,25 @@ a {
 }
 
 .suggestions_unit_follow {
+    background: transparent;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
     color: #1854C3;
     margin-right: 0;
     margin-left: auto;
-    text-decoration: none;
+    font-size: medium;
+}
+
+.suggestions_unit_unfollow {
+    background: white;
+    border: 1px lightgray;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #1854C3;
+    margin-right: 0;
+    margin-left: auto;
+    font-size: medium;
 }
 /********** recommendations panel end **********/
 

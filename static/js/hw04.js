@@ -1,3 +1,5 @@
+const server_url = ""//"https://photo-app-dy.herokuapp.com"
+
 const story2Html = story => {
     return `
         <div class="story_panel_unit">
@@ -8,7 +10,7 @@ const story2Html = story => {
 };
 
 const displayStories = () => {
-    fetch('/api/stories')
+    fetch(server_url + '/api/stories')
         .then(response => response.json())
         .then(stories => {
             const html = stories.map(story2Html).join('\n');
@@ -25,7 +27,7 @@ const profile2Html = profile => {
 };
 
 const displayProfile = () => {
-    fetch('/api/profile')
+    fetch(server_url + '/api/profile')
         .then(response => response.json())
         .then(profile => {
             const html = profile2Html(profile);
@@ -33,6 +35,55 @@ const displayProfile = () => {
         })
 };
 
+
+const handleFollow = (event) => {
+    const elem = event.currentTarget;
+    if (elem.getAttribute('aria-checked') === 'false') {
+        followUser( elem.dataset.userId, elem );
+    } else {
+        unfollowUser( elem.dataset.followingId, elem);
+    }
+}
+
+const followUser = ( uid, elem ) => {
+    const postData = {
+        "user_id": uid
+    }
+
+    fetch(server_url + '/api/following', {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(postData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        elem.innerHTML = 'unfollow';
+        elem.classList.add('suggestions_unit_unfollow');
+        elem.classList.remove('suggestions_unit_follow');
+        // elem.setAttribute('aria-label', "Unfollow");
+        elem.setAttribute('aria-checked', 'true');
+        elem.setAttribute('data-following-id', data.id);
+    })
+}
+
+const unfollowUser = ( uid, elem ) => {
+    fetch(server_url + `/api/following/${uid}`, {
+        method: "DELETE",
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data)
+        elem.innerHTML = 'follow';
+        elem.classList.add('suggestions_unit_follow');
+        elem.classList.remove('suggestions_unit_unfollow');
+        // elem.setAttribute('aria-label', "Unfollow");
+        elem.setAttribute('aria-checked', 'false');
+        elem.removeAttribute('data-following-id');
+    })
+}
 
 const suggestion2Html = suggest => {
     return `
@@ -42,13 +93,18 @@ const suggestion2Html = suggest => {
                 <div class="suggestions_unit_body_name">${ suggest.username }</div>
                 <div class="suggestions_unit_body_text">suggested for you</div>
             </div>
-            <a class="suggestions_unit_follow" href="#">follow</a>
+            <button class="suggestions_unit_follow" 
+                    data-user-id="${ suggest.id }" 
+                    onclick="handleFollow(event)"
+                    aria-label="Follow"
+                    aria-checked="false"
+            >follow</button>
         </div>
     `;
 };
 
 const displaySuggestions = () => {
-    fetch('/api/suggestions')
+    fetch(server_url + '/api/suggestions')
         .then(response => response.json())
         .then(suggestions => {
             const html = suggestions.map(suggestion2Html).join('\n');
@@ -71,6 +127,7 @@ const post2Html = post => {
                 </div>
                 `
     }
+
     return `
         <div class="card">
             <div class="card_header">
@@ -118,7 +175,7 @@ const post2Html = post => {
 };
 
 const displayPosts = () => {
-    fetch('/api/posts')
+    fetch(server_url + '/api/posts')
         .then(response => response.json())
         .then(posts => {
             const html = posts.map(post2Html).join('\n');
