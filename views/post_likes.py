@@ -60,7 +60,7 @@ class PostLikesDetailEndpoint(Resource):
         LikePost.query.filter_by(id=id).delete()
         db.session.commit()
 
-        return Response(json.dumps({}), mimetype="application/json", status=200)
+        return Response(json.dumps({"message": "unlike success"}), mimetype="application/json", status=200)
 
 
 def initialize_routes(api):

@@ -215,18 +215,25 @@ a {
 }
 
 .card_content_icons_icon {
+    cursor: pointer;
     padding-right: 5px;
 }
 
 .card_content_icons_bookmark {
+    cursor: pointer;
     float: right;
     padding-right: 10px;
+}
+
+.card_content_like_num {
+    font-family: Arial, serif;
+    font-weight: 900;
+    padding-left: 10px;
 }
 
 .card_content_like {
     font-family: Arial, serif;
     font-weight: 900;
-    padding-left: 10px;
 }
 
 .card_content_post {
@@ -295,8 +302,11 @@ a {
 }
 
 .card_add_comment_submit {
+    background: transparent;
+    border: 0;
     color: #3371E6;
-    text-decoration: none;
+    cursor: pointer;
+    font-size: large;
     margin: 10px;
 }
 /********** card end **********/
