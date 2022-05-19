@@ -434,7 +434,7 @@ const post2Modal = post => {
     return `
         <div class="modal_bg" aria-hidden="false" role="dialog">
             <button class="modal_close" aria-label="close" onclick="closeModal(event)"><i class="fas fa-times"></i></button>
-            <section class="modal">
+            <div class="modal">
                 <img class="modal_img" src='${post.image_url}' alt="post_img"/>
                 <div class="modal_comments">
                     <div class="modal_comments_profile">
@@ -443,7 +443,7 @@ const post2Modal = post => {
                     </div>
                     ${ comments }
                 </div>
-            </section>
+            </div>
         </div>
     `;
 }

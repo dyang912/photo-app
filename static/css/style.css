@@ -316,7 +316,6 @@ a {
     cursor: pointer;
     font-size: large;
     margin: 10px;
-    z-index: 2;
 }
 /********** card end **********/
 
@@ -333,6 +332,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 .modal_close {
@@ -340,8 +340,8 @@ a {
     border: 0;
     cursor: pointer;
     position: fixed;
-    top: 130px;
-    right: 50px;
+    top: 100px;
+    right: 100px;
     color: white;
     font-weight: bold;
     font-size: xxx-large;
@@ -353,10 +353,12 @@ a {
 }
 
 .modal_comments {
-    overflow: scroll;
     height: 100%;
     width: 30%;
     right: 0;
+    border-radius:0;
+    overflow: auto;
+    position: relative;
 }
 
 .modal_comments_profile {
@@ -368,6 +370,7 @@ a {
     padding-left: 10px;
     border: solid 1px #ebebeb;
     background-color: white;
+    z-index: 3;
 }
 
 .modal_comments_profile_img {
@@ -423,12 +426,11 @@ a {
 
 .modal {
     width: 70%;
-    height: auto;
-    max-height: 80%;
+    height: 70%;
     background-color: white;
     border-radius: 5px;
-    display: table;
-    flex-direction: column;
+    display: flex;
+    margin: auto;
 }
 
 /********** modal end **********/
