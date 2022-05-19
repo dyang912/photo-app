@@ -102,7 +102,7 @@ const postDetail = (post) => {
                 <i class="far fa-paper-plane card_content_icons_icon"></i>
                 <i class="${ post.current_user_bookmark_id ? 'fas' : 'far' } fa-bookmark card_content_icons_bookmark"
                    data-post-id="${ post.id }"
-                   data-bookmark-id="${ post.current_user_like_id }"
+                   data-bookmark-id="${ post.current_user_bookmark_id }"
                    onclick="HandleBookmark(event)"
                    aria-label="${ post.current_user_bookmark_id ? 'Unbookmark' : 'Bookmark' }"
                    aria-checked="${ post.current_user_bookmark_id ? 'true' : 'false' }"></i>
