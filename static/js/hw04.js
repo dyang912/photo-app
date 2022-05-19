@@ -4,7 +4,7 @@ const SERVER_URL = "https://photo-app-dy.herokuapp.com"
 const story2Html = story => {
     return `
         <div class="story_panel_unit">
-            <img class="story_panel_unit_pic"  src="${ story.user.thumb_url }" class="pic" alt="profile pic for ${ story.user.username }" />
+            <img class="story_panel_unit_pic"  src="${ story.user.image_url }" class="pic" alt="profile pic for ${ story.user.username }" />
             <div class="story_panel_unit_name">${ story.user.username }</div>
         </div>
     `;
@@ -67,12 +67,11 @@ const displaySuggestions = () => {
 };
 
 
-
-const post2Html = (post, currentUserID) => {
+const postDetail = (post) => {
     let comments = `
-                <a class="card_content_comments_viewall" href="#">
+                <button class="card_content_comments_viewall" data-post-id="${post.id}" onclick="showModal(event)">
                     View all ${post.comments.length} comments
-                </a>
+                </button>
                 `;
     if (post.comments.length >= 1) {
         comments += `
@@ -83,71 +82,70 @@ const post2Html = (post, currentUserID) => {
                 `;
     }
 
-    let like = `far`, likeChecked = "false";
-    if (post.likes.filter(e => e.user_id === parseInt(currentUserID, 10)).length > 0) {
-        like = `fas`;
-        likeChecked = "true";
-    }
-
-    let bookmark = `far`, bookmarkChecked = "false";
-    // if (post.likes.filter(e => e.user_id === parseInt(currentUserID, 10)).length > 0) {
-    //     like = `fas`;
-    //     likeChecked = "true";
-    // }
-
     return `
-        <div class="card">
-            <div class="card_header">
-                <div class="card_header_name">${ post.user.username }</div>
-                <i class="fas fa-ellipsis-h card_header_icon"></i>
+        <div class="card_header">
+            <div class="card_header_name">${ post.user.username }</div>
+            <i class="fas fa-ellipsis-h card_header_icon"></i>
+        </div>
+
+        <img class="card_img" src="${ post.image_url }" alt="card_img_${ post.user.username }">
+
+        <div class="card_content">
+            <div class="card_content_icons">
+                <i class="${ post.current_user_like_id ? 'fas' : 'far' } fa-heart card_content_icons_icon" 
+                   data-post-id="${ post.id }" 
+                   data-like-id="${ post.current_user_like_id }"
+                   onclick="HandleLike(event)"
+                   aria-label="${ post.current_user_like_id ? 'Unlike' : 'Like' }"
+                   aria-checked="${ post.current_user_like_id ? 'true' : 'false' }"></i>
+                <i class="far fa-comment card_content_icons_icon"></i>
+                <i class="far fa-paper-plane card_content_icons_icon"></i>
+                <i class="${ post.current_user_bookmark_id ? 'fas' : 'far' } fa-bookmark card_content_icons_bookmark"
+                   data-post-id="${ post.id }"
+                   data-bookmark-id="${ post.current_user_like_id }"
+                   onclick="HandleBookmark(event)"
+                   aria-label="${ post.current_user_bookmark_id ? 'Unbookmark' : 'Bookmark' }"
+                   aria-checked="${ post.current_user_bookmark_id ? 'true' : 'false' }"></i>
             </div>
-    
-            <img class="card_img" src="${ post.image_url }" alt="card_img_${ post.user.username }">
-    
-            <div class="card_content">
-                <div class="card_content_icons">
-                    <i class="${ like } fa-heart card_content_icons_icon" 
-                       data-post-id="${ post.id }" 
-                       onclick="HandleLike(event)"
-                       aria-checked="${ likeChecked }"></i>
-                    <i class="far fa-comment card_content_icons_icon"></i>
-                    <i class="far fa-paper-plane card_content_icons_icon"></i>
-                    <i class="${ bookmark } fa-bookmark card_content_icons_bookmark"
-                       data-post-id="${ post.id }"
-                       onclick="HandleBookmark(event)"
-                       aria-checked="${ bookmarkChecked }"></i>
-                </div>
-    
-                <span class="card_content_like_num" id="like_num_${ post.id }">${ post.likes.length }</span>
-                <span class="card_content_like">likes</span>
-    
-                <div class="card_content_post">
-                    <span class="card_content_post_name">${ post.user.username }</span>
-                    ${ post.caption }..
-                    <span class="card_content_post_more" >more</span>
-                </div>
-    
-                <div class="card_content_comments">
-                    ${ comments }
-                </div>
-    
-                <div class="card_content_time">
-                    ${ post.display_time.toUpperCase() }
-                </div>
+
+            <span class="card_content_like_num" id="like_num_${ post.id }">${ post.likes.length }</span>
+            <span class="card_content_like">likes</span>
+
+            <div class="card_content_post">
+                <span class="card_content_post_name">${ post.user.username }</span>
+                ${ post.caption }..
+                <span class="card_content_post_more" >more</span>
             </div>
-    
-            <div class="card_add_comment">
-                <label class="card_add_comment_input">
-                    <i class="far fa-smile card_add_comment_input_icon"></i>label
-                    <input class="card_add_comment_input_textbox" id="comment_input" type="text" placeholder="Add a comment..." />
-                </label>
-    
-                <button class="card_add_comment_submit" 
-                        onclick="HandleComment(event)"
-                        data-post-id="${ post.id }">
-                    Post
-                </button>
+
+            <div class="card_content_comments">
+                ${ comments }
             </div>
+
+            <div class="card_content_time">
+                ${ post.display_time.toUpperCase() }
+            </div>
+        </div>
+
+        <div class="card_add_comment">
+            <label class="card_add_comment_input">
+                <i class="far fa-smile card_add_comment_input_icon"></i>label
+                <input class="card_add_comment_input_textbox" id="comment_input_${post.id}" type="text" placeholder="Add a comment..." />
+            </label>
+
+            <button class="card_add_comment_submit" 
+                    onclick="HandleComment(event)"
+                    data-post-id="${ post.id }">
+                Post
+            </button>
+        </div>
+    `
+}
+
+
+const post2Html = (post) => {
+    return `
+        <div class="card" id="post_${post.id}">
+           ${postDetail(post)}
         </div>
     `;
 };
@@ -156,7 +154,7 @@ const displayPosts = (currentUserID) => {
     fetch(SERVER_URL + '/api/posts')
         .then(response => response.json())
         .then(posts => {
-            const html = posts.map(p => post2Html(p, currentUserID)).join('\n');
+            const html = posts.map(post2Html).join('\n');
             document.querySelector('.posts_content').innerHTML = html;
         })
 };
@@ -173,6 +171,20 @@ const initPage = (currentUserID) => {
 // invoke init page to display stories:
 initPage(userInfo);
 
+
+
+const redrawPost = (postId, callback) => {
+    fetch(SERVER_URL + `/api/posts/${postId}`)
+        .then(response => response.json())
+        .then(updatedPost => {
+            console.log(updatedPost);
+            if (!callback) {
+                document.querySelector(`#post_${postId}`).innerHTML = postDetail(updatedPost)
+            } else {
+                callback(updatedPost);
+            }
+    })
+}
 
 
 const HandleFollow = (event) => {
@@ -202,7 +214,7 @@ const followUser = ( uid, elem ) => {
         elem.innerHTML = 'unfollow';
         elem.classList.add('suggestions_unit_unfollow');
         elem.classList.remove('suggestions_unit_follow');
-        // elem.setAttribute('aria-label', "Unfollow");
+        elem.setAttribute('aria-label', "Unfollow");
         elem.setAttribute('aria-checked', 'true');
         elem.setAttribute('data-following-id', data.id);
     })
@@ -218,7 +230,7 @@ const unfollowUser = ( uid, elem ) => {
         elem.innerHTML = 'follow';
         elem.classList.add('suggestions_unit_follow');
         elem.classList.remove('suggestions_unit_unfollow');
-        // elem.setAttribute('aria-label', "Unfollow");
+        elem.setAttribute('aria-label', "Follow");
         elem.setAttribute('aria-checked', 'false');
         elem.removeAttribute('data-following-id');
     })
@@ -255,9 +267,7 @@ const likePost = ( pid, elem ) => {
                 elem.classList.add('fas');
                 elem.setAttribute('aria-checked', 'true');
                 elem.setAttribute('data-like-id', data.id);
-
-                const likeElem = document.querySelector(`#like_num_${pid}`);
-                likeElem.innerText = parseInt(likeElem.innerText, 10) + 1;
+                redrawPost(pid, null);
             })
         } else {
             response.json().then(data => console.log("Error:", data))
@@ -277,9 +287,7 @@ const unlikePost = ( lid, elem, pid ) => {
                 elem.classList.add('far');
                 elem.setAttribute('aria-checked', 'false');
                 elem.removeAttribute('data-like-id');
-
-                const likeElem = document.querySelector(`#like_num_${pid}`);
-                likeElem.innerText = parseInt(likeElem.innerText, 10) - 1;
+                redrawPost(pid, null);
             })
         } else {
             response.json().then(data => console.log("Error:", data))
@@ -348,15 +356,16 @@ const removeBookmark = ( bid, elem ) => {
 
 const HandleComment = (event) => {
     const elem = event.currentTarget;
-    if (document.querySelector("#comment_input").value.length > 0) {
-        addComment( elem.dataset.postId, elem );
+    const input = document.querySelector(`#comment_input_${elem.dataset.postId}`).value;
+    if (input.length > 0) {
+        addComment( elem.dataset.postId, elem, input );
     }
 }
 
-const addComment = ( pid, elem ) => {
+const addComment = ( pid, elem, input ) => {
     const postData = {
         "post_id": pid,
-        "text": document.querySelector("#comment_input").value
+        "text": input,
     }
 
     fetch(SERVER_URL + '/api/comments', {
@@ -370,8 +379,9 @@ const addComment = ( pid, elem ) => {
         if (response.ok) {
             response.json().then(data => {
                 console.log(data)
-                document.querySelector("#comment_input").value = '';
+                document.querySelector(`#comment_input_${pid}`).value = '';
                 elem.setAttribute('data-comment-id', data.id);
+                redrawPost(pid, null);
             })
         } else {
             response.json().then(data => console.log("Error:", data))
@@ -393,4 +403,52 @@ const removeComment = ( lid, elem, pid ) => {
             response.json().then(data => console.log("Error:", data))
         }
     })
+}
+
+const showModal = (event) => {
+    const postId = Number(event.currentTarget.dataset.postId);
+    redrawPost(postId, (post) => {
+            const html = post2Modal(post);
+            document.querySelector(`#post_${post.id}`).insertAdjacentHTML('beforeend', html);
+    })
+}
+
+const post2Modal = post => {
+    let comments = "";
+    post.comments.map(com => {
+        comments += `
+            <div class="modal_comments_content_unit">
+                <img class="modal_comments_content_img" src='${ com?.user.image_url }' alt="post_img"/>
+                <div class="modal_comments_content_text">
+                    <div>
+                        <span class="card_content_comments_unit_name">${ com?.user.username }</span>
+                        ${ com?.text }
+                    </div>
+                    <div class="modal_comments_content_text_time">${ com.display_time.toUpperCase() }</div>
+                </div>
+                <button class="modal_comments_unit_icon"><i class="far fa-lg fa-heart modal_comments_unit_icon_i"></i></button>
+            </div>
+        `;
+    })
+
+    return `
+        <div class="modal_bg" aria-hidden="false" role="dialog">
+            <button class="modal_close" aria-label="close" onclick="closeModal(event)"><i class="fas fa-times"></i></button>
+            <section class="modal">
+                <img class="modal_img" src='${post.image_url}' alt="post_img"/>
+                <div class="modal_comments">
+                    <div class="modal_comments_profile">
+                        <img class="modal_comments_profile_img" src="${ post.user.image_url }" alt="profile pic for ${ post.user.username }">
+                        <h2 class="modal_comments_profile_name">${ post.user.username }</h2>
+                    </div>
+                    ${ comments }
+                </div>
+            </section>
+        </div>
+    `;
+}
+
+const closeModal = event => {
+    console.log('close');
+    document.querySelector('.modal_bg').remove();
 }
